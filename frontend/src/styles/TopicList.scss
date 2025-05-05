@@ -5,3 +5,20 @@
   align-items: center;
   margin-right: 24px;
 }
+
+.topic-list {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  padding: 0;
+}
+
+.topic-list-item {
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.topic-list-item.selected {
+  color: blue;
+  text-decoration: underline;
+}

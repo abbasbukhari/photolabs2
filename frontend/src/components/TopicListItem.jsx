@@ -1,17 +1,12 @@
-import "../styles/TopicListItem.scss";
+import React from 'react';
 
-const sampleDataForTopicListItem = {
-  id: 1,
-  slug: "topic-1",
-  label: "Nature",
-};
-
-const TopicListItem = () => {
-  return (
-    <div className="topic-list__item">
-      {/* Insert React */}
-    </div>
-  );
-};
+const TopicListItem = ({ topic, isSelected, onClick }) => (
+  <li
+    className={`topic-list-item ${isSelected ? 'selected' : ''}`}
+    onClick={onClick}
+  >
+    {topic.name}
+  </li>
+);
 
 export default TopicListItem;
