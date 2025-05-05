@@ -1,13 +1,14 @@
-// import FavIcon from './FavIcon';
+import React from 'react';
 import '../styles/PhotoFavButton.scss';
 
-const PhotoFavButton = () => {
+const PhotoFavButton = ({ isLiked, onClick }) => {
   return (
-    <div className="photo-list__fav-icon">
-      <div className="photo-list__fav-icon-svg">
-        {/* Insert React */}
-      </div>
-    </div>
+    <button
+      className={`photo-fav-button ${isLiked ? 'photo-fav-button--active' : ''}`}
+      onClick={onClick}
+    >
+      {isLiked ? '❤️' : '🤍'}
+    </button>
   );
 };
 
