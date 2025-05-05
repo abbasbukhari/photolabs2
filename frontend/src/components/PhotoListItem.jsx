@@ -1,3 +1,4 @@
+import React from 'react';
 import "../styles/PhotoListItem.scss";
 
 const sampleDataForPhotoListItem = {
@@ -17,8 +18,19 @@ const sampleDataForPhotoListItem = {
   },
 };
 
-const PhotoListItem = () => {
-  /* Insert React */
+const PhotoListItem = ({ username, imageSource, location, profile }) => {
+  return (
+    <div className="photo-list-item">
+      <img src={imageSource} alt={`${username}'s photo`} className="photo" />
+      <div className="photo-details">
+        <img src={profile} alt={`${username}'s profile`} className="profile-pic" />
+        <div>
+          <p className="username">{username}</p>
+          <p className="location">{location.city}, {location.country}</p>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default PhotoListItem;
