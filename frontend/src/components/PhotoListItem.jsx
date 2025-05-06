@@ -1,15 +1,18 @@
 import React from 'react';
 import { useFavorites } from '../context/FavoritesContext';
 
-const PhotoListItem = ({ photo }) => {
+const PhotoListItem = ({ photo, onPhotoClick }) => {
   const { favorites, toggleFavorite } = useFavorites();
   const isFavorited = favorites.includes(photo.id);
 
   return (
-    <li className="photo-list-item">
+    <li className="photo-list-item" onClick={onPhotoClick}>
       <div
         className={`photo-list-item__heart ${isFavorited ? 'favorited' : ''}`}
-        onClick={() => toggleFavorite(photo.id)}
+        onClick={(e) => {
+          e.stopPropagation(); // Prevent triggering the modal when clicking the heart
+          toggleFavorite(photo.id);
+        }}
       >
         ❤️
       </div>
