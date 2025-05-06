@@ -2,16 +2,18 @@ import React from 'react';
 import FavBadge from './FavBadge';
 import '../styles/TopNavigationBar.scss';
 
-const TopNavigationBar = () => {
+const TopNavigationBar = ({ topics, favorites }) => {
   return (
     <div className="top-nav-bar">
       <span className="top-nav-bar__logo">PhotoLabs</span>
       <div className="top-nav-bar__topics">
-        <span className="top-nav-bar__topic">Nature</span>
-        <span className="top-nav-bar__topic">Travel</span>
-        <span className="top-nav-bar__topic">People</span>
+        {topics.map((topic) => (
+          <span key={topic.id} className="top-nav-bar__topic">
+            {topic.name}
+          </span>
+        ))}
       </div>
-      <FavBadge />
+      <FavBadge favorites={favorites} />
     </div>
   );
 };

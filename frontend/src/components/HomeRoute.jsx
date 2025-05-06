@@ -1,14 +1,17 @@
 import React from 'react';
 import TopNavigationBar from './TopNavigationBar';
 import PhotoList from './PhotoList';
+import { useFavorites } from '../context/FavoritesContext';
 import '../styles/HomeRoute.scss';
 
-const HomeRoute = () => {
+const HomeRoute = ({ photos, topics }) => {
+  const { favorites } = useFavorites();
+
   return (
     <div className="home-route">
-      <TopNavigationBar />
+      <TopNavigationBar topics={topics} favorites={favorites} />
       <div className="home-route__photos">
-        <PhotoList />
+        <PhotoList photos={photos} />
       </div>
     </div>
   );

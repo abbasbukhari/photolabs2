@@ -29,6 +29,16 @@
   border-radius: 50%;
   padding: 5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.photo-list-item__heart:hover {
+  transform: scale(1.2);
+}
+
+.photo-list-item__heart.favorited {
+  color: #ff0000;
 }
 
 .photo-list-item__image {
