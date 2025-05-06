@@ -1,20 +1,37 @@
 .top-nav-bar {
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
-  padding: 8px;
   align-items: center;
-  -webkit-box-shadow: 0 4px 6px -6px #222;
-  -moz-box-shadow: 0 4px 6px -6px #222;
-  box-shadow: 0 4px 6px -6px #222;
-  height: 72px;
+  padding: 1rem 2rem;
+  background-color: white;
+  border-bottom: 1px solid #ddd;
+  width: 100%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .top-nav-bar__logo {
-  text-decoration: overline;
-  font-weight: 500;
-  font-size: 24px;
-  color: #111;
-  text-underline-position: auto;
-  margin-left: 24px;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.top-nav-bar__topics {
+  display: flex;
+  gap: 2rem;
+}
+
+.top-nav-bar__topic {
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  color: black;
+}
+
+.top-nav-bar__topic:hover {
+  text-decoration: underline;
+}
+
+.top-nav-bar__actions {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
 }
