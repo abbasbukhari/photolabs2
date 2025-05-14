@@ -30,22 +30,6 @@
     text-align: center;
   }
 
-  &__close-button {
-    position: absolute;
-    top: 16px; /* Adjusted for top-left corner */
-    left: 16px; /* Adjusted for top-left corner */
-    background: none;
-    border: none;
-    font-size: 1.5rem;
-    font-weight: bold;
-    cursor: pointer;
-    color: #333;
-  }
-
-  &__close-button:hover {
-    color: #000;
-  }
-
   &__body {
     text-align: center;
   }

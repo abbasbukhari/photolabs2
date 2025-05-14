@@ -6,11 +6,11 @@ const PhotoListItem = ({ photo, onPhotoClick }) => {
   const isFavorited = favorites.includes(photo.id);
 
   return (
-    <li className="photo-list-item" onClick={onPhotoClick}>
+    <li className="photo-list-item" onClick={() => onPhotoClick(photo)}>
       <div
         className={`photo-list-item__heart ${isFavorited ? 'favorited' : ''}`}
-        onClick={(e) => {
-          e.stopPropagation(); // Prevent triggering the modal when clicking the heart
+        onClick={e => {
+          e.stopPropagation();
           toggleFavorite(photo.id);
         }}
       >
