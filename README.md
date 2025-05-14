@@ -116,9 +116,8 @@ npm run error
 
 ## Screenshots
 
-![Homepage](docs/homepage.png)
-![Photo Modal](docs/photo-modal.png)
-
+![Homepage](/frontend/docs/homepage.png)
+![Photo Modal](/frontend/docs/photo-modal.png)
 
 ## Endpoints
 
