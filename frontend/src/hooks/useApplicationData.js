@@ -33,17 +33,23 @@ function reducer(state, action) {
 export default function useApplicationData() {
   const [state, dispatch] = useReducer(reducer, initialState);
 
-  // Fetch photos
+  // Fetch all photos on mount
   useEffect(() => {
     axios.get('http://localhost:8001/api/photos')
       .then(res => dispatch({ type: ACTIONS.SET_PHOTO_DATA, payload: res.data }));
   }, []);
 
-  // Fetch topics
+  // Fetch topics on mount
   useEffect(() => {
     axios.get('http://localhost:8001/api/topics')
       .then(res => dispatch({ type: ACTIONS.SET_TOPIC_DATA, payload: res.data }));
   }, []);
+
+  // Fetch photos by topic
+  const fetchPhotosByTopic = (topicId) => {
+    axios.get(`http://localhost:8001/api/topics/${topicId}/photos`)
+      .then(res => dispatch({ type: ACTIONS.SET_PHOTO_DATA, payload: res.data }));
+  };
 
   const openPhotoModal = (photo) => {
     dispatch({ type: ACTIONS.OPEN_PHOTO_MODAL, payload: photo });
@@ -59,6 +65,7 @@ export default function useApplicationData() {
     openPhotoModal,
     closePhotoModal,
     photos: state.photoData,
-    topics: state.topicData
+    topics: state.topicData,
+    fetchPhotosByTopic // <-- expose this function
   };
 }

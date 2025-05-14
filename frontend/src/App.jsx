@@ -12,7 +12,8 @@ const App = () => {
     openPhotoModal,
     closePhotoModal,
     photos,
-    topics
+    topics,
+    fetchPhotosByTopic
   } = useApplicationData();
 
   return (
@@ -22,6 +23,7 @@ const App = () => {
           photos={photos}
           topics={topics}
           onPhotoClick={openPhotoModal}
+          onTopicClick={fetchPhotosByTopic}
         />
         {isPhotoModalOpen && selectedPhoto && (
           <PhotoDetailsModal
