@@ -31,15 +31,12 @@ Both of these achieve the same result.
 
 ## Run The Server
 
-Running the server normally
-```sh
+cd backend
+npm install
+cp .env.example .env.development
+# Edit .env.development with your DB credentials if needed
+# Create and seed the database as per README instructions
 npm start
-```
-
-Running the server so it returns an error when saving/deleting for testing the client's error handling capabilities
-```sh
-npm run error
-```
 
 ## Endpoints
 

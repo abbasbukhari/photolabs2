@@ -114,6 +114,12 @@ Running the server so it returns an error when saving/deleting for testing the c
 npm run error
 ```
 
+## Screenshots
+
+![Homepage](docs/homepage.png)
+![Photo Modal](docs/photo-modal.png)
+
+
 ## Endpoints
 
 ### Retrieve all photos
