@@ -1,11 +1,11 @@
 import React from 'react';
 
-const TopicListItem = ({ topic, isSelected, onClick }) => (
+const TopicListItem = ({ topic, onClick }) => (
   <li
-    className={`topic-list-item ${isSelected ? 'selected' : ''}`}
+    className="topic-list-item"
     onClick={onClick}
   >
-    {topic.name}
+    {topic.title}
   </li>
 );
 

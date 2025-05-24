@@ -1,5 +1,6 @@
 import React from 'react';
 import { useFavorites } from '../context/FavoritesContext';
+import PhotoFavButton from './PhotoFavButton';
 
 const PhotoListItem = ({ photo, onPhotoClick }) => {
   const { favorites, toggleFavorite } = useFavorites();
@@ -7,14 +8,14 @@ const PhotoListItem = ({ photo, onPhotoClick }) => {
 
   return (
     <li className="photo-list-item" onClick={() => onPhotoClick(photo)}>
-      <div
-        className={`photo-list-item__heart ${isFavorited ? 'favorited' : ''}`}
-        onClick={e => {
-          e.stopPropagation();
-          toggleFavorite(photo.id);
-        }}
-      >
-        ❤️
+      <div className="photo-list-item__favorite-button">
+        <PhotoFavButton 
+          isLiked={isFavorited} 
+          onClick={(e) => {
+            e.stopPropagation();
+            toggleFavorite(photo.id);
+          }} 
+        />
       </div>
       <img
         className="photo-list-item__image"

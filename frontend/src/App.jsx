@@ -1,6 +1,6 @@
 import React from 'react';
 import { FavoritesProvider } from './context/FavoritesContext';
-import HomeRoute from './components/HomeRoute';
+import HomeRoute from './components/HomeRoute'; 
 import PhotoDetailsModal from './components/PhotoDetailsModal';
 import useApplicationData from './hooks/useApplicationData';
 import './styles/App.scss';

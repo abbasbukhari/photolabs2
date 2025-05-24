@@ -6,21 +6,23 @@ PhotoLabs is a React-based single-page application (SPA) that allows users to vi
 
 ## Features
 
-- View photos on the homepage.
-- Explore photos by categories (topics).
-- View a larger version of a photo and similar photos.
-- Like photos and track liked photos with a heart icon in the navigation bar.
-- Backend API for managing photos and topics.
-- Database reset functionality for development and testing.
+- Browse and view high-quality photos from various photographers.
+- Filter photos by categories (People, Nature, Travel, Animals, Fashion).
+- View detailed photo information in a modal overlay.
+- Like/unlike photos with visual heart icon feedback
+- Track liked photos with a counter in the navigation bar
+- Responsive design for various screen sizes
+- Real-time API integration for fresh content
 
 ---
 
 ## Tech Stack
 
 ### Frontend
-- **React**: For building the user interface.
-- **React Router**: For navigation between pages.
-- **Axios**: For making API requests.
+- **React**: For building the user interface with functional components and hooks.
+- **Context API**: For global state management of favorites.
+- **Axios**: For making API requests to the backend.
+- **SCSS**: For component styling with BEM methodology.
 
 ### Backend
 - **Node.js**: For the server runtime.
@@ -30,35 +32,41 @@ PhotoLabs is a React-based single-page application (SPA) that allows users to vi
 
 ---
 
+## Project Structure
+
+# The project follows a component-based architecture:
+
+* /components: Reusable UI components (PhotoList, PhotoFavButton, TopicList, etc.)
+* /routes: Page-level components (HomeRoute)
+* /context: React Context providers (FavoritesContext)
+* /hooks: Custom React hooks (useApplicationData)
+* /styles: SCSS stylesheets
+* backend: API server and database
+
 ## Installation FrontEnd
 
-# PhotoLabs React Application
-
-## Setup
-
-Install dependencies with `npm install`.
+Setup
+Install dependencies with npm install.
 
 Note: This project requires at least Node v16
 
-## Run The Development Server
+Run The Development Server
 
 Start the server with
 
 ```sh
 npm run dev
 ```
+You can visit the running application at http://localhost:3000
 
-You can visit the running application at [http://localhost:3000](http://localhost:3000)
-
-## Run The Linter
+Run The Linter
 
 You can run eslint with the following command:
 
 ```sh
 npm run lint
 ```
-
-## Run The Jest Tests
+Run The Jest Tests
 
 The tests can be run with:
 
@@ -68,71 +76,90 @@ npm run test
 npm test
 ```
 
----
-## Installation BackEnd
+## Installation FrontEnd
 
-# Photolabs API
+Setup
+Install dependencies with npm install.
 
-## Setup
+Creating The DB
+Use the psql -U labber command to login to the PostgreSQL server with the username labber and the password labber.
 
-Install dependencies with `npm install`.
+Create a database with the command CREATE DATABASE photolabs_development;.
 
-## Creating The DB
+Copy the .env.example file to .env.development and fill in the necessary PostgreSQL configuration. The node-postgres library uses these environment variables by default.
 
-Use the `psql -U labber` command to login to the PostgreSQL server with the username `labber` and the password `labber`.
-
-Create a database with the command `CREATE DATABASE photolabs_development;`.
-
-Copy the `.env.example` file to `.env.development` and fill in the necessary PostgreSQL configuration. The `node-postgres` library uses these environment variables by default.
-
-```
+```sh
 PGHOST=localhost
 PGUSER=labber
 PGDATABASE=photolabs_development
 PGPASSWORD=labber
 PGPORT=5432
 ```
-
-## Seeding
-
-Run the development server with `npm start`.
+Seeding
+Run the development server with npm start.
 
 Both of these achieve the same result.
 
-- Make a `GET` request to `/api/debug/reset` with `curl http://localhost:8001/api/debug/reset`.
-- Use the browser to navigate to [http://localhost:8001/api/debug/reset](http://localhost:8001/api/debug/reset).
-
-## Run The Server
-
+Make a GET request to /api/debug/reset with curl http://localhost:8001/api/debug/reset.
+Use the browser to navigate to http://localhost:8001/api/debug/reset.
+Run The Server
 Running the server normally
+
 ```sh
 npm start
 ```
 
 Running the server so it returns an error when saving/deleting for testing the client's error handling capabilities
+
 ```sh
 npm run error
 ```
+
+## Running Both Servers
+
+To run the complete application, you'll need to start both the frontend and backend servers:
+
+* Terminal 1: Start the backend server
+
+```sh
+cd backend
+npm start
+```
+* Terminal 2: Start the frontend development server
+
+```sh
+cd frontend
+npm run dev
+```
+* Visit http://localhost:3000 in your browser
 
 ## Screenshots
 
 ![Homepage](/frontend/docs/homepage.png)
 ![Photo Modal](/frontend/docs/single-photo.png)
 
-## Endpoints
+## API Endpoints
 
-### Retrieve all photos
+Retrieve all photos
 
-[/api/photos](http://localhost:8001/api/photos)
+/api/photos
 
-### Retrieve all topics
+Retrieve all topics
 
-[/api/topics](http://localhost:8001/api/topics)
+/api/topics
 
-### Retrieve photos for a specific topic
+Retrieve photos for a specific topic
 
-[/api/topics/:id/photos](http://localhost:8001/api/topics/:id/photos)
+/api/topics/:id/photos
 
-### Reset the database
+Reset the database
 
-[/api/debug/reset](http://localhost:8001/api/debug/reset)
+/api/debug/reset
+
+## Recent Updates
+
+* Reorganized project structure with proper component separation
+* Implemented photo filtering by topics
+* Added favorites functionality with visual feedback
+* Connected to backend API for dynamic content
+* Fixed UI/UX issues for better user experience

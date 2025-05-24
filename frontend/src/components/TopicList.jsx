@@ -1,29 +1,15 @@
-import React, { useState } from 'react';
+import React from 'react';
 import TopicListItem from './TopicListItem';
 import '../styles/TopicList.scss';
 
-const topics = [
-  { id: "1", name: "Nature" },
-  { id: "2", name: "Cities" },
-  { id: "3", name: "People" },
-];
-
-const TopicList = ({ onTopicSelect }) => {
-  const [selectedTopic, setSelectedTopic] = useState(null);
-
-  const handleTopicClick = (topic) => {
-    setSelectedTopic(topic.id);
-    onTopicSelect(topic.name);
-  };
-
+const TopicList = ({ topics, onTopicClick }) => {
   return (
-    <ul className="topic-list">
+    <ul className="top-nav-bar__topic-list">
       {topics.map((topic) => (
         <TopicListItem
           key={topic.id}
           topic={topic}
-          isSelected={selectedTopic === topic.id}
-          onClick={() => handleTopicClick(topic)}
+          onClick={() => onTopicClick(topic.id)}
         />
       ))}
     </ul>

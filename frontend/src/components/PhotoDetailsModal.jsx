@@ -1,7 +1,12 @@
 import React from 'react';
+import PhotoFavButton from './PhotoFavButton';
+import { useFavorites } from '../context/FavoritesContext';
 import '../styles/PhotoDetailsModal.scss';
 
 const PhotoDetailsModal = ({ photo, onClose }) => {
+  const { favorites, toggleFavorite } = useFavorites();
+  const isFavorited = photo && favorites.includes(photo.id);
+
   if (!photo) return null;
 
   return (
@@ -17,6 +22,14 @@ const PhotoDetailsModal = ({ photo, onClose }) => {
           &times;
         </button>
         <div className="photo-details-modal__body">
+          <div className="photo-details-modal__top-bar">
+            <div className="photo-details-modal__favorite-button">
+              <PhotoFavButton
+                isLiked={isFavorited}
+                onClick={() => toggleFavorite(photo.id)}
+              />
+            </div>
+          </div>
           <img
             src={photo.urls.full}
             alt={`${photo.location.city}, ${photo.location.country}`}
@@ -35,7 +48,6 @@ const PhotoDetailsModal = ({ photo, onClose }) => {
               </div>
             </div>
           </div>
-          {/* Add similar photos here in the future */}
         </div>
       </div>
     </div>
